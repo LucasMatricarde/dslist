@@ -2,6 +2,7 @@ package com.devsuperior.dslist.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,16 +26,20 @@ public class Game {
 	
 	private String plataforma;
 	
+	private Double pontuacao;
+	
 	private String imgUrl;
 	
+	@Column(columnDefinition = "TEXT")
 	private String descricaoCurta;
 	
+	@Column(columnDefinition = "TEXT")
 	private String descricaoLonga;
 	
 	public Game() {
 	}
 	
-	public Game(Long id, String titulo, Integer ano, String genero, String plataforma, String imgUrl,
+	public Game(Long id, String titulo, Integer ano, String genero, String plataforma, Double pontuacao, String imgUrl,
 			String descricaoCurta, String descricaoLonga) {
 		super();
 		this.id = id;
@@ -42,6 +47,7 @@ public class Game {
 		this.ano = ano;
 		this.genero = genero;
 		this.plataforma = plataforma;
+		this.pontuacao = pontuacao;
 		this.imgUrl = imgUrl;
 		this.descricaoCurta = descricaoCurta;
 		this.descricaoLonga = descricaoLonga;
@@ -109,6 +115,14 @@ public class Game {
 
 	public void setDescricaoLonga(String descricaoLonga) {
 		this.descricaoLonga = descricaoLonga;
+	}
+	
+	public Double getPontuacao() {
+		return pontuacao;
+	}
+
+	public void setPontuacao(Double pontuacao) {
+		this.pontuacao = pontuacao;
 	}
 
 	@Override
